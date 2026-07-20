@@ -3,96 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jon Tech - Web Design & Digital Growth in Uganda</title>
-    <meta name="description" content="Jon Tech helps businesses in Masindi, Kigumba, and across Uganda grow online with stunning, fast websites. Get your business online today.">
-    
+    <title>Jon Tech - Web Design in Masindi & Kigumba Uganda</title>
+    <meta name="description" content="Jon Tech builds modern websites for businesses in Masindi, Kigumba, and Uganda. Get online today.">
     <style>
         * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif;}
-        body {background: #0a0a0a; color: #fff; line-height: 1.6;}
+        body {background: #0a0a0a; color: #fff;}
         
-        /* NAV */
-        nav {display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #000; position: sticky; top: 0; z-index: 100;}
-        nav h2 {color: #00aaff; font-size: 24px;}
-        nav a {color: #fff; text-decoration: none; margin-left: 20px; font-weight: 500;}
-        nav a:hover {color: #00aaff;}
+        nav {display: flex; justify-content: space-between; padding: 20px 8%; background: #000; position: sticky; top: 0;}
+        nav h2 {color: #00aaff;}
         
-        /* HERO */
-        .hero {text-align: center; padding: 100px 8%; background: linear-gradient(135deg, #00aaff 0%, #0044cc 100%);}
-        .hero h1 {font-size: 48px; margin-bottom: 20px;}
-        .hero p {font-size: 18px; max-width: 600px; margin: 0 auto 30px;}
-        .btn {display: inline-block; background: #25D366; color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s;}
-        .btn:hover {transform: scale(1.05); background: #1ebe57;}
+        /* TOP BLUE BACKGROUND WITH YOUR PIC */
+        .hero {display: flex; align-items: center; justify-content: center; gap: 50px; padding: 100px 8%; background: linear-gradient(135deg, #00aaff 0%, #0044cc 100%); flex-wrap: wrap;}
+        .hero-text {max-width: 500px;}
+        .hero h1 {font-size: 48px; margin-bottom: 15px;}
+        .hero p {font-size: 18px; margin-bottom: 25px;}
+        .hero-img img {width: 280px; height: 280px; border-radius: 50%; border: 6px solid #fff; object-fit: cover; box-shadow: 0 10px 40px rgba(0,0,0,0.4);}
+        .btn {background: #25D366; color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block;}
+        .btn:hover {transform: scale(1.05);}
         
-        /* SERVICES */
         .section {padding: 80px 8%; text-align: center;}
-        .section h2 {font-size: 36px; margin-bottom: 20px; color: #00aaff;}
         .cards {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;}
-        .card {background: #1a1a1a; padding: 30px; border-radius: 15px; border: 1px solid #333; transition: 0.3s;}
-        .card:hover {border-color: #00aaff; transform: translateY(-5px);}
-        .card h3 {color: #00aaff; margin-bottom: 10px;}
+        .card {background: #1a1a1a; padding: 30px; border-radius: 15px; border: 1px solid #333;}
         
-        /* CONTACT */
         .contact {background: #1a1a1a; padding: 80px 8%; text-align: center;}
-        .contact-info {margin: 20px 0; font-size: 18px;}
-        
-        /* FOOTER */
-        footer {background: #000; text-align: center; padding: 20px; color: #777;}
+        footer {background: #000; text-align: center; padding: 20px;}
         
         @media(max-width: 768px){
+            .hero {text-align: center;}
             .hero h1 {font-size: 32px;}
-            nav a {display: none;}
+            .hero-img img {width: 220px; height: 220px;}
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <h2>JON TECH</h2>
-        <div>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+    <nav><h2>JON TECH</h2></nav>
 
     <section class="hero">
-        <h1>We Build Websites That Get You Customers</h1>
-        <p>Helping businesses in <b>Masindi, Kigumba & Across Uganda</b> grow online with modern, fast, and mobile-friendly websites.</p>
-        <a href="https://wa.me/256776934860" class="btn">Chat on WhatsApp</a>
+        <div class="hero-text">
+            <h1>Hi, I'm Jon</h1>
+            <p>I build websites that get Ugandan businesses more customers. Based in <b>Masindi & Kigumba</b>.</p>
+            <a href="https://wa.me/256776934860" class="btn">Message Me on WhatsApp</a>
+        </div>
+        <div class="hero-img">
+            <img src="https://imgur.com/a/wm3fQT1" alt="Jon from Jon Tech">
+        </div>
     </section>
 
     <section class="section" id="services">
-        <h2>What We Do</h2>
-        <p>Everything you need to dominate online</p>
+        <h2 style="color:#00aaff; font-size:36px;">My Services</h2>
         <div class="cards">
-            <div class="card">
-                <h3>Business Websites</h3>
-                <p>Professional sites that make customers trust your brand instantly.</p>
-            </div>
-            <div class="card">
-                <h3>Landing Pages</h3>
-                <p>High-converting pages for products, events, and promotions.</p>
-            </div>
-            <div class="card">
-                <h3>Portfolio Sites</h3>
-                <p>Showcase your work beautifully and get more clients.</p>
-            </div>
+            <div class="card"><h3 style="color:#00aaff;">Business Websites</h3><p>Look professional online</p></div>
+            <div class="card"><h3 style="color:#00aaff;">Landing Pages</h3><p>Get more sales & leads</p></div>
+            <div class="card"><h3 style="color:#00aaff;">Portfolio Sites</h3><p>Showcase your work</p></div>
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <h2>Let's Work Together</h2>
-        <p>Ready to take your business online?</p>
-        <div class="contact-info">
-            <p><b>Location:</b> Kigumba, Masindi, Uganda</p>
-            <p><b>WhatsApp:</b> +256 776 934 860</p>
-            <p><b>Email:</b> jon248257@gmail.com</p>
-        </div>
-        <a href="https://wa.me/256776934860" class="btn">Get Started on WhatsApp</a>
+        <h2 style="color:#00aaff; font-size:36px;">Let's Talk</h2>
+        <p><b>WhatsApp:</b> +256 776 934 860</p>
+        <p><b>Email:</b> jon248257@gmail.com</p>
+        <p><b>Location:</b> Kigumba, Masindi, Uganda</p>
     </section>
 
-    <footer>
-        <p>© 2026 Jon Tech. Built with passion in Uganda 🇺🇬</p>
-    </footer>
+    <footer><p>© 2026 Jon Tech 🇺🇬</p></footer>
 
 </body>
-    </html>
+</html>
