@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Tech in Uganda, Kigumba, Masindi, Web Developer Uganda, Canva Designer, WhatsApp Business Expert, Ads Maker Uganda">
+    <title>Jon Tech - Web Developer Uganda</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        nav { background: #0a0a0a; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .logo { font-weight: bold; font-size: 20px; color: #00aaff; }
+        .menu { display: flex; gap: 20px; }
+        .menu a { color: white; text-decoration: none; font-weight: 500; }
+        .hamburger { display: none; font-size: 24px; cursor: pointer; }
+        @media(max-width: 768px) {
+            .menu { display: none; flex-direction: column; background: #0a0a0a; position: absolute; top: 55px; right: 20px; width: 200px; padding: 15px; border-radius: 8px; }
+            .menu.show { display: flex; }
+            .hamburger { display: block; }
+            .hero { flex-direction: column; }
+            .hero-text, .hero-img { width: 100%; height: 50vh; }
+        }
+        .hero { display: flex; height: 100vh; padding-top: 60px; }
+        .hero-text { width: 50%; padding: 60px 40px; background: white; display: flex; flex-direction: column; justify-content: center; }
+        .hero-img { width: 50%; background: url('me.jpg') center/cover no-repeat; position: relative; }
+        .computer-logo { position: absolute; top: 20px; right: 20px; width: 50px; height: 50px; background: #00aaff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+        h1 { font-size: 38px; color: #0077ff; margin-bottom: 10px; }
+        .btn { background: #0077ff; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 15px; font-weight: bold; }
+        .contact { margin-top: 20px; line-height: 2; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Jon Tech</div>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="products.html">Services</a>
+        </div>
+        <div class="hamburger" onclick="document.getElementById('menu').classList.toggle('show')">☰</div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Hi, I'm Jon 👋</h1>
+            <p><b>Tech Man Available | Web Developer | Canva Designer | Ads Creator</b></p>
+            <p>I build websites, designs, and ads that help businesses in <b>Uganda, Kigumba, Masindi</b> grow online.</p>
+            <div class="contact">
+                <h2>CONTACT ME</h2>
+                <p><b>Location:</b> Kigumba, Masindi, Uganda</p>
+                <p><b>WhatsApp:</b> +256 776934860</p>
+                <p><b>Email:</b> jon248257@gmail.com</p>
+                <a href="https://wa.me/256776934860" class="btn">Hire Me on WhatsApp</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <div class="computer-logo">💻</div>
+        </div>
+    </section>
+</body>
+  </html>
