@@ -9,19 +9,29 @@
         * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, sans-serif;}
         html {scroll-behavior: smooth;}
         body {
-            background: #030303; color: #fff; overflow-x: hidden;
-            background: linear-gradient(180deg, #030303 0%, #0a0515 50%, #030a08 100%);
+            background: #030303; color: #fff; overflow-x: hidden; position: relative;
         }
 
-        /* ===== ANIMATED LUXURY BACKGROUND ===== */
-        .bg-orbs {position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden;}
+        /* ===== WATERFALL LUXURY BACKGROUND ===== */
+        .bg-waterfall {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920') center/cover no-repeat;
+            filter: brightness(0.25) blur(2px) saturate(1.2);
+        }
+        /* DARK OVERLAY SO TEXT IS READABLE */
+        .bg-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: linear-gradient(180deg, rgba(3,3,3,0.85) 0%, rgba(5,10,5,0.9) 50%, rgba(3,3,3,0.85) 100%);
+        }
+        /* SUBTLE GREEN GLOW ORBS ON TOP OF WATERFALL */
+        .bg-orbs {position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none;}
         .orb {
-            position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.4;
+            position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.25;
             animation: floatOrb 20s infinite ease-in-out;
         }
-        .orb1 {width: 600px; height: 600px; background: radial-gradient(circle, #a855f7, transparent 70%); top: -300px; left: -200px;}
-        .orb2 {width: 500px; height: 500px; background: radial-gradient(circle, #22c55e, transparent 70%); bottom: -250px; right: -150px; animation-delay: -10s;}
-        .orb3 {width: 400px; height: 400px; background: radial-gradient(circle, #3b82f6, transparent 70%); top: 50%; left: 50%; animation-delay: -5s;}
+        .orb1 {width: 600px; height: 600px; background: radial-gradient(circle, #22c55e, transparent 70%); top: -300px; left: -200px;}
+        .orb2 {width: 500px; height: 500px; background: radial-gradient(circle, #16a34a, transparent 70%); bottom: -250px; right: -150px; animation-delay: -10s;}
+        .orb3 {width: 400px; height: 400px; background: radial-gradient(circle, #15803d, transparent 70%); top: 50%; left: 50%; animation-delay: -5s;}
         @keyframes floatOrb {0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(50px,-50px) scale(1.1)} 66%{transform:translate(-30px,30px) scale(0.9)}}
 
         /* ===== SCROLL ANIMATIONS ===== */
@@ -49,36 +59,36 @@
         @keyframes slideDown {from{transform:translateY(-100%)} to{transform:translateY(0)}}
         nav h2 {
             font-size: 26px; font-weight: 800;
-            background: linear-gradient(90deg, #a855f7, #22c55e);
+            background: linear-gradient(90deg, #22c55e, #16a34a);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
         /* ===== TYPOGRAPHY ===== */
         h1 {font-size: 78px; line-height: 1.05; font-weight: 800; letter-spacing: -2px;}
         h1 .gradient {
-            background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: gradientShift 4s ease infinite;
         }
-        @keyframes gradientShift {0%,100%{filter:hue-rotate(0deg)} 50%{filter:hue-rotate(20deg)}}
+        @keyframes gradientShift {0%,100%{filter:hue-rotate(0deg)} 50%{filter:hue-rotate(15deg)}}
         h2 {font-size: 46px; font-weight: 700; margin-bottom: 30px;}
-        p {color: #a0a0a0; line-height: 1.8; font-size: 18px;}
+        p {color: #d0d0d0; line-height: 1.8; font-size: 18px;}
 
         /* ===== BUTTONS ===== */
         .btn-pill {
-            display: inline-block; padding: 12px 28px; border: 1px solid #a855f7;
-            border-radius: 50px; font-size: 14px; margin-top: 25px; color: #a855f7;
+            display: inline-block; padding: 12px 28px; border: 1px solid #22c55e;
+            border-radius: 50px; font-size: 14px; margin-top: 25px; color: #22c55e;
             transition: 0.4s; animation: pulse 2s infinite;
         }
-        @keyframes pulse {0%,100%{box-shadow:0 0 0 0 rgba(168,85,247,0.4)} 50%{box-shadow:0 0 0 15px rgba(168,85,247,0)}}
-        .btn-pill:hover {background: #a855f7; color: #fff; transform: translateY(-3px);}
+        @keyframes pulse {0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)} 50%{box-shadow:0 0 0 15px rgba(34,197,94,0)}}
+        .btn-pill:hover {background: #22c55e; color: #fff; transform: translateY(-3px);}
 
         /* ===== OVAL IMAGES ===== */
         .oval {
             width: 320px; height: 420px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
             object-fit: cover; border: 3px solid transparent;
-            background: linear-gradient(45deg, #a855f7, #22c55e) border-box;
-            box-shadow: 0 0 60px rgba(168,85,247,0.3);
+            background: linear-gradient(45deg, #22c55e, #16a34a) border-box;
+            box-shadow: 0 0 60px rgba(34,197,94,0.3);
             animation: float3d 6s ease-in-out infinite;
         }
         @keyframes float3d {0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-25px) rotate(2deg)}}
@@ -87,48 +97,48 @@
         /* ===== PROJECT ARCHES ===== */
         .projects {display: flex; gap: 35px; justify-content: center; flex-wrap: wrap;}
         .arch {
-            width: 240px; height: 300px; background: rgba(255,255,255,0.03);
+            width: 240px; height: 300px; background: rgba(255,255,255,0.04);
             border-radius: 120px 120px 20px 20px; border: 1px solid rgba(255,255,255,0.1);
             display: flex; align-items: center; justify-content: center; font-size: 60px;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); backdrop-filter: blur(10px);
         }
         .arch:hover {
-            border-color: #a855f7; transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(168,85,247,0.3);
+            border-color: #22c55e; transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(34,197,94,0.3);
         }
 
         /* ===== PRICING ===== */
         .pricing-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; margin-top: 50px;}
         .price-card {
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
             border-radius: 24px; padding: 40px; text-align: center;
-            transition: all 0.4s; position: relative; overflow: hidden;
+            transition: all 0.4s; position: relative; overflow: hidden; backdrop-filter: blur(10px);
         }
         .price-card::before {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: conic-gradient(from 0deg, transparent, #a855f7, transparent);
+            background: conic-gradient(from 0deg, transparent, #22c55e, transparent);
             animation: rotate 4s linear infinite; opacity: 0; transition: 0.4s;
         }
         .price-card:hover::before {opacity: 0.3;}
         @keyframes rotate {to{transform:rotate(360deg)}}
-        .price-card:hover {transform: translateY(-12px); border-color: #a855f7;}
-        .price-card.featured {border: 2px solid #a855f7; background: rgba(168,85,247,0.08);}
+        .price-card:hover {transform: translateY(-12px); border-color: #22c55e;}
+        .price-card.featured {border: 2px solid #22c55e; background: rgba(34,197,94,0.08);}
         .price-card.featured .badge {
             position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-            background: linear-gradient(90deg, #a855f7, #22c55e); padding: 8px 18px;
+            background: linear-gradient(90deg, #22c55e, #16a34a); padding: 8px 18px;
             border-radius: 20px; font-size: 12px; font-weight: 700;
         }
         .price {font-size: 52px; color: #22c55e; font-weight: 800; margin: 20px 0;}
-        .price span {font-size: 16px; color: #888;}
+        .price span {font-size: 16px; color: #aaa;}
         .price-card ul {list-style: none; text-align: left; margin: 25px 0;}
-        .price-card ul li {padding: 10px 0; color: #ccc;} 
+        .price-card ul li {padding: 10px 0; color: #ddd;} 
         .price-card ul li:before {content: "✓ "; color: #22c55e; font-weight: bold;}
 
         /* ===== CONTACT ===== */
         .contact-grid {display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center;}
-        .contact-item {padding: 30px; border-radius: 16px; background: rgba(255,255,255,0.03); transition: 0.3s;}
-        .contact-item:hover {background: rgba(168,85,247,0.1); transform: translateY(-5px);}
-        .contact-item h4 {color: #a855f7; margin-bottom: 12px; font-size: 16px;}
+        .contact-item {padding: 30px; border-radius: 16px; background: rgba(255,255,255,0.04); transition: 0.3s; backdrop-filter: blur(10px);}
+        .contact-item:hover {background: rgba(34,197,94,0.1); transform: translateY(-5px);}
+        .contact-item h4 {color: #22c55e; margin-bottom: 12px; font-size: 16px;}
         
         /* WHATSAPP BUTTON WITH ICON */
         .whatsapp-btn {
@@ -142,8 +152,17 @@
         @keyframes glow {from{box-shadow:0 10px 40px rgba(37,211,102,0.3)} to{box-shadow:0 15px 60px rgba(37,211,102,0.5)}}
         .whatsapp-btn:hover {transform: scale(1.08) translateY(-3px);}
 
-        /* ===== FOOTER ===== */
-        footer {text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #666;}
+        /* ===== FOOTER WITH UGANDA FLAG ===== */
+        footer {
+            text-align: center; padding: 50px 20px; border-top: 1px solid rgba(255,255,255,0.08);
+            background: rgba(0,0,0,0.4); backdrop-filter: blur(20px);
+        }
+        .flag {
+            width: 40px; height: 27px; display: inline-block; margin: 0 8px; vertical-align: middle;
+            background: linear-gradient(to bottom, #000 0%, #000 16.66%, #ffcc00 16.66%, #ffcc00 33.33%, #d90000 33.33%, #d90000 50%, #ffcc00 50%, #ffcc00 66.66%, #000 66.66%, #000 83.33%, #d90000 83.33%, #d90000 100%);
+            border-radius: 3px; box-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+        footer p {color: #999; font-size: 15px;}
 
         @media(max-width:900px){
             h1 {font-size: 50px;} h2 {font-size: 36px;}
@@ -153,6 +172,9 @@
     </style>
 </head>
 <body>
+    <!-- WATERFALL BACKGROUND LAYERS -->
+    <div class="bg-waterfall"></div>
+    <div class="bg-overlay"></div>
     <div class="bg-orbs">
         <div class="orb orb1"></div>
         <div class="orb orb2"></div>
@@ -258,7 +280,10 @@
         </div>
     </section>
 
-    <footer><p>© 2026 Jon Tech. Built with passion.</p></footer>
+    <!-- FOOTER WITH UGANDA FLAG -->
+    <footer>
+        <p>Proudly built in <span class="flag"></span> Uganda © 2026 Jon Tech. All Rights Reserved.</p>
+    </footer>
 
     <!-- SCROLL ANIMATION SCRIPT -->
     <script>
