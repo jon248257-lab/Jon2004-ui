@@ -3,318 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jon Tech | VVIP Web Design</title>
+    <title>Jon Tech | Websites for Growing Businesses</title>
     <style>
         /* ===== RESET & BASE ===== */
         * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, sans-serif;}
         html {scroll-behavior: smooth;}
         body {
-            background: #000; color: #fff; overflow-x: hidden; position: relative;
+            background: #020208; color: #fff; overflow-x: hidden; position: relative;
         }
 
-        /* ===== VVIP DIGITAL BACKGROUND SYSTEM ===== */
-        .bg-master {position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -5;}
-        
-        /* LAYER 1: ANIMATED GRID MATRIX */
+        /* ===== DIGITAL TECH BACKGROUND ===== */
         .bg-grid {
-            position: absolute; top: 0; left: 0; width: 200%; height: 200%;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -3;
             background-image: 
-                linear-gradient(rgba(34,197,94,0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(34,197,94,0.15) 1px, transparent 1px),
-                linear-gradient(rgba(59,130,246,0.08) 2px, transparent 2px),
-                linear-gradient(90deg, rgba(59,130,246,0.08) 2px, transparent 2px);
-            background-size: 50px 50px, 50px 50px, 100px 100px, 100px 100px;
-            animation: gridMove 30s linear infinite;
-            perspective: 1000px;
-            transform-style: preserve-3d;
+                linear-gradient(rgba(34,197,94,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34,197,94,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
         }
-        @keyframes gridMove {
-            0%{transform:translate(-50%,-50%) rotateX(60deg)} 
-            100%{transform:translate(-50%,-50%) rotateX(60deg) translate(50px,50px)}
-        }
+        @keyframes gridMove {0%{transform:translate(0,0)} 100%{transform:translate(50px,50px)}}
         
-        /* LAYER 2: NEBULA GLOW */
-        .bg-nebula {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        .bg-lines {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
             background: 
-                radial-gradient(ellipse at 20% 30%, rgba(34,197,94,0.25) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(59,130,246,0.20) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.15) 0%, transparent 60%);
-            animation: nebulaPulse 8s ease-in-out infinite alternate;
+                radial-gradient(circle at 20% 30%, rgba(34,197,94,0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(59,130,246,0.12) 0%, transparent 40%);
         }
-        @keyframes nebulaPulse {
-            0%{opacity:0.6; transform:scale(1)} 
-            100%{opacity:1; transform:scale(1.1)}
+        /* ANIMATED DIGITAL PARTICLES */
+        .bg-particles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none;
         }
-
-        /* LAYER 3: FLOATING DIGITAL PARTICLES - UPGRADED */
-        .bg-particles {position: absolute; width: 100%; height: 100%; overflow: hidden;}
         .particle {
-            position: absolute; border-radius: 50%;
-            background: radial-gradient(circle, #22c55e 0%, transparent 70%);
-            box-shadow: 0 0 20px #22c55e, 0 0 40px #22c55e;
-            animation: floatParticle 20s infinite linear;
+            position: absolute; width: 2px; height: 2px; background: #22c55e;
+            box-shadow: 0 0 10px #22c55e; border-radius: 50%;
+            animation: floatParticle 15s infinite linear;
         }
-        .particle.blue {background: radial-gradient(circle, #3b82f6 0%, transparent 70%); box-shadow: 0 0 20px #3b82f6, 0 0 40px #3b82f6;}
-        .particle.purple {background: radial-gradient(circle, #a855f7 0%, transparent 70%); box-shadow: 0 0 20px #a855f7, 0 0 40px #a855f7;}
         @keyframes floatParticle {
-            0%{transform:translateY(100vh) translateX(0) scale(0); opacity:0}
-            10%{opacity:1; scale:1}
+            0%{transform:translateY(100vh) translateX(0); opacity:0}
+            10%{opacity:1}
             90%{opacity:1}
-            100%{transform:translateY(-100vh) translateX(200px) scale(0); opacity:0}
+            100%{transform:translateY(-100vh) translateX(100px); opacity:0}
         }
-
-        /* LAYER 4: SCANNING LASER LINES */
-        .bg-scan {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, transparent 0%, rgba(34,197,94,0.1) 50%, transparent 100%);
-            animation: scanLine 4s linear infinite;
-        }
-        @keyframes scanLine {0%{transform:translateY(-100%)} 100%{transform:translateY(100%)}}
-
-        /* LAYER 5: DIGITAL NOISE */
-        .bg-noise {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMDUiLz48L3N2Zz4=');
-            opacity: 0.4; mix-blend-mode: overlay;
-        }
-
-        /* LAYER 6: CORNER TECH CORNERS */
-        .tech-corner {
-            position: fixed; width: 100px; height: 100px; border: 2px solid #22c55e;
-            z-index: -4; opacity: 0.5; animation: cornerGlow 3s ease-in-out infinite;
-        }
-        .tech-corner.tl {top: 20px; left: 20px; border-right: none; border-bottom: none;}
-        .tech-corner.tr {top: 20px; right: 20px; border-left: none; border-bottom: none;}
-        .tech-corner.bl {bottom: 20px; left: 20px; border-right: none; border-top: none;}
-        .tech-corner.br {bottom: 20px; right: 20px; border-left: none; border-top: none;}
-        @keyframes cornerGlow {0%,100%{opacity:0.3; box-shadow:0 0 10px #22c55e} 50%{opacity:0.8; box-shadow:0 0 30px #22c55e}}
 
         /* ===== SCROLL ANIMATIONS ===== */
-        .fade-in {opacity: 0; transform: translateY(60px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);}
+        .fade-in {opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out;}
         .fade-in.visible {opacity: 1; transform: translateY(0);}
-        .fade-left {opacity: 0; transform: translateX(-80px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);}
+        .fade-left {opacity: 0; transform: translateX(-60px); transition: all 0.8s ease-out;}
         .fade-left.visible {opacity: 1; transform: translateX(0);}
-        .fade-right {opacity: 0; transform: translateX(80px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);}
+        .fade-right {opacity: 0; transform: translateX(60px); transition: all 0.8s ease-out;}
         .fade-right.visible {opacity: 1; transform: translateX(0);}
-        .scale-in {opacity: 0; transform: scale(0.7); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);}
+        .scale-in {opacity: 0; transform: scale(0.8); transition: all 0.8s ease-out;}
         .scale-in.visible {opacity: 1; transform: scale(1);}
-        .blur-in {opacity: 0; filter: blur(10px); transition: all 1.5s ease;}
-        .blur-in.visible {opacity: 1; filter: blur(0);}
 
-        /* ===== LAYOUT ===== */
-        .container {max-width: 1300px; margin: 0 auto; padding: 120px 5%;}
-        .section {margin-bottom: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;}
-        .flex {display: flex; justify-content: center; align-items: center; gap: 100px; flex-wrap: wrap;}
+        /* ===== LAYOUT - FIXED VACANT SPACE ===== */
+        .container {max-width: 1200px; margin: 0 auto; padding: 100px 5%;}
+        .section {margin-bottom: 100px;} /* REDUCED GAP */
+        .flex {display: flex; justify-content: space-between; align-items: center; gap: 80px; flex-wrap: wrap;} /* BIGGER GAP */
 
-        /* ===== NAVBAR VVIP ===== */
+        /* ===== NAVBAR ===== */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(0,0,0,0.4); backdrop-filter: blur(30px);
-            border-bottom: 1px solid rgba(34,197,94,0.3);
-            padding: 25px 5%; animation: slideDown 1.5s ease-out;
+            background: rgba(2,2,8,0.8); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(34,197,94,0.2);
+            padding: 20px 5%; animation: slideDown 1s ease-out;
         }
         @keyframes slideDown {from{transform:translateY(-100%)} to{transform:translateY(0)}}
         nav h2 {
-            font-size: 30px; font-weight: 900; letter-spacing: 2px;
-            background: linear-gradient(90deg, #22c55e, #3b82f6, #a855f7);
+            font-size: 26px; font-weight: 800;
+            background: linear-gradient(90deg, #22c55e, #3b82f6);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: gradientShift 5s ease infinite;
         }
-        @keyframes gradientShift {0%,100%{filter:hue-rotate(0deg)} 50%{filter:hue-rotate(40deg)}}
 
-        /* ===== TYPOGRAPHY VVIP ===== */
-        h1 {font-size: 90px; line-height: 1.05; font-weight: 900; letter-spacing: -3px; text-align: center;}
+        /* ===== TYPOGRAPHY ===== */
+        h1 {font-size: 78px; line-height: 1.05; font-weight: 800; letter-spacing: -2px;}
         h1 .gradient {
-            background: linear-gradient(135deg, #22c55e 0%, #3b82f6 50%, #a855f7 100%);
+            background: linear-gradient(135deg, #22c55e 0%, #3b82f6 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: gradientShift 4s ease infinite;
-            text-shadow: 0 0 60px rgba(34,197,94,0.5);
         }
-        h2 {font-size: 56px; font-weight: 800; margin-bottom: 40px; text-align: center;}
-        p {color: #d0d0d0; line-height: 1.9; font-size: 20px; text-align: center; max-width: 600px; margin: 0 auto;}
+        @keyframes gradientShift {0%,100%{filter:hue-rotate(0deg)} 50%{filter:hue-rotate(20deg)}}
+        h2 {font-size: 46px; font-weight: 700; margin-bottom: 30px;}
+        p {color: #c0c0c0; line-height: 1.8; font-size: 18px;}
 
-        /* ===== OVAL IMAGE - YOUR PIC ===== */
+        /* ===== BUTTONS ===== */
+        .btn-pill {
+            display: inline-block; padding: 12px 28px; border: 1px solid #22c55e;
+            border-radius: 50px; font-size: 14px; margin-top: 25px; color: #22c55e;
+            transition: 0.4s; animation: pulse 2s infinite;
+            background: rgba(34,197,94,0.05); backdrop-filter: blur(10px);
+        }
+        @keyframes pulse {0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)} 50%{box-shadow:0 0 0 15px rgba(34,197,94,0)}}
+        .btn-pill:hover {background: #22c55e; color: #fff; transform: translateY(-3px);}
+
+        /* ===== OVAL IMAGES ===== */
         .oval {
-            width: 400px; height: 500px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            object-fit: cover; border: 4px solid transparent;
-            background: linear-gradient(45deg, #22c55e, #3b82f6, #a855f7) border-box;
-            box-shadow: 
-                0 0 80px rgba(34,197,94,0.5),
-                0 0 120px rgba(59,130,246,0.3),
-                inset 0 0 60px rgba(0,0,0,0.3);
-            animation: float3d 8s ease-in-out infinite;
-            position: relative;
+            width: 320px; height: 420px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            object-fit: cover; border: 3px solid transparent;
+            background: linear-gradient(45deg, #22c55e, #3b82f6) border-box;
+            box-shadow: 0 0 60px rgba(34,197,94,0.3);
+            animation: float3d 6s ease-in-out infinite;
         }
-        .oval::before {
-            content: ''; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            background: linear-gradient(45deg, #22c55e, #3b82f6, #a855f7);
-            z-index: -1; filter: blur(30px); opacity: 0.6; animation: glowPulse 3s ease-in-out infinite;
-        }
-        @keyframes float3d {0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-30px) rotate(3deg)}}
-        @keyframes glowPulse {0%,100%{opacity:0.4} 50%{opacity:0.8}}
+        @keyframes float3d {0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-25px) rotate(2deg)}}
+        .oval-small {width: 240px; height: 300px;}
 
-        /* ===== PRICING VVIP ===== */
-        .pricing-wrapper {width: 100%; max-width: 1200px;}
-        .pricing-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 50px; margin-top: 60px;}
+        /* ===== PROJECT ARCHES - FILLED BETTER ===== */
+        .projects {display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;}
+        .arch {
+            width: 260px; height: 320px; background: rgba(34,197,94,0.05);
+            border-radius: 120px 120px 20px 20px; border: 1px solid rgba(34,197,94,0.2);
+            display: flex; align-items: center; justify-content: center; font-size: 60px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); backdrop-filter: blur(15px);
+        }
+        .arch:hover {
+            border-color: #22c55e; transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(34,197,94,0.4);
+        }
+
+        /* ===== PRICING ===== */
+        .pricing-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 50px;}
         .price-card {
-            background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.2);
-            border-radius: 30px; padding: 50px 40px; text-align: center;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; backdrop-filter: blur(20px);
+            background: rgba(34,197,94,0.04); border: 1px solid rgba(34,197,94,0.15);
+            border-radius: 24px; padding: 40px; text-align: center;
+            transition: all 0.4s; position: relative; overflow: hidden; backdrop-filter: blur(15px);
         }
         .price-card::before {
-            content: ''; position: absolute; top: -100%; left: -100%; width: 300%; height: 300%;
-            background: conic-gradient(from 0deg, transparent, #22c55e, #3b82f6, #a855f7, transparent);
-            animation: rotate 6s linear infinite; opacity: 0; transition: 0.6s;
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent, #22c55e, transparent);
+            animation: rotate 4s linear infinite; opacity: 0; transition: 0.4s;
         }
-        .price-card:hover::before {opacity: 0.15;}
+        .price-card:hover::before {opacity: 0.2;}
         @keyframes rotate {to{transform:rotate(360deg)}}
-        .price-card:hover {
-            transform: translateY(-20px) scale(1.03); border-color: #22c55e;
-            box-shadow: 0 30px 80px rgba(34,197,94,0.4);
-        }
-        .price-card.featured {
-            border: 2px solid #22c55e; background: rgba(34,197,94,0.1);
-            transform: scale(1.05);
-        }
+        .price-card:hover {transform: translateY(-12px); border-color: #22c55e;}
+        .price-card.featured {border: 2px solid #22c55e; background: rgba(34,197,94,0.08);}
         .price-card.featured .badge {
-            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-            background: linear-gradient(90deg, #22c55e, #3b82f6, #a855f7); padding: 10px 25px;
-            border-radius: 30px; font-size: 13px; font-weight: 800; letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(34,197,94,0.5);
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(90deg, #22c55e, #3b82f6); padding: 8px 18px;
+            border-radius: 20px; font-size: 12px; font-weight: 700;
         }
-        .price-card h3 {font-size: 28px; margin-bottom: 15px;}
-        .price {font-size: 60px; color: #22c55e; font-weight: 900; margin: 25px 0; text-shadow: 0 0 30px rgba(34,197,94,0.5);}
-        .price span {font-size: 18px; color: #aaa; font-weight: 400;}
-        .price-card ul {list-style: none; text-align: left; margin: 30px 0;}
-        .price-card ul li {padding: 12px 0; color: #e0e0e0; font-size: 17px;} 
-        .price-card ul li:before {content: "✓ "; color: #22c55e; font-weight: bold; margin-right: 10px; font-size: 20px;}
+        .price {font-size: 52px; color: #22c55e; font-weight: 800; margin: 20px 0;}
+        .price span {font-size: 16px; color: #aaa;}
+        .price-card ul {list-style: none; text-align: left; margin: 25px 0;}
+        .price-card ul li {padding: 10px 0; color: #ddd;} 
+        .price-card ul li:before {content: "✓ "; color: #22c55e; font-weight: bold;}
 
-        /* ===== CTA BUTTON ===== */
-        .btn-vvip {
-            display: inline-flex; align-items: center; gap: 15px;
-            background: linear-gradient(135deg, #22c55e, #3b82f6, #a855f7); color: #fff;
-            padding: 22px 50px; border-radius: 20px; text-decoration: none;
-            font-weight: 800; font-size: 20px; margin-top: 60px;
-            transition: all 0.5s; box-shadow: 0 20px 60px rgba(34,197,94,0.4);
-            animation: glow 3s ease-in-out infinite alternate;
-            position: relative; overflow: hidden;
+        /* ===== CONTACT ===== */
+        .contact-grid {display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center;}
+        .contact-item {padding: 30px; border-radius: 16px; background: rgba(34,197,94,0.04); transition: 0.3s; backdrop-filter: blur(15px); border: 1px solid rgba(34,197,94,0.1);}
+        .contact-item:hover {background: rgba(34,197,94,0.1); transform: translateY(-5px); border-color: #22c55e;}
+        .contact-item h4 {color: #22c55e; margin-bottom: 12px; font-size: 16px;}
+        
+        /* WHATSAPP BUTTON WITH ICON */
+        .whatsapp-btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: linear-gradient(135deg, #25D366, #128C7E); color: #fff;
+            padding: 18px 40px; border-radius: 16px; text-decoration: none;
+            font-weight: 700; font-size: 18px; margin-top: 50px;
+            transition: all 0.4s; box-shadow: 0 10px 40px rgba(37,211,102,0.3);
+            animation: glow 2s ease-in-out infinite alternate;
         }
-        .btn-vvip::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
-        }
-        .btn-vvip:hover::before {left: 100%;}
-        @keyframes glow {from{box-shadow:0 20px 60px rgba(34,197,94,0.4)} to{box-shadow:0 30px 90px rgba(59,130,246,0.6)}}
-        .btn-vvip:hover {transform: scale(1.1) translateY(-5px);}
+        @keyframes glow {from{box-shadow:0 10px 40px rgba(37,211,102,0.3)} to{box-shadow:0 15px 60px rgba(37,211,102,0.5)}}
+        .whatsapp-btn:hover {transform: scale(1.08) translateY(-3px);}
 
-        /* ===== FOOTER ===== */
+        /* ===== FOOTER WITH UGANDA FLAG EMOJI ===== */
         footer {
-            text-align: center; padding: 60px 20px; border-top: 1px solid rgba(34,197,94,0.3);
-            background: rgba(0,0,0,0.6); backdrop-filter: blur(30px);
+            text-align: center; padding: 50px 20px; border-top: 1px solid rgba(34,197,94,0.2);
+            background: rgba(2,2,8,0.8); backdrop-filter: blur(20px);
         }
-        footer p {color: #999; font-size: 16px;}
+        footer p {color: #999; font-size: 15px;}
 
         @media(max-width:900px){
-            h1 {font-size: 55px;} h2 {font-size: 40px;}
-            .oval {width: 300px; height: 380px;}
-            .flex {flex-direction: column; gap: 60px;}
-            .price-card.featured {transform: scale(1);}
+            h1 {font-size: 50px;} h2 {font-size: 36px;}
+            .contact-grid {grid-template-columns: 1fr;}
+            .flex {flex-direction: column; text-align: center; gap: 40px;}
         }
     </style>
 </head>
 <body>
-    <!-- VVIP DIGITAL BACKGROUND SYSTEM -->
-    <div class="bg-master">
-        <div class="bg-grid"></div>
-        <div class="bg-nebula"></div>
-        <div class="bg-scan"></div>
-        <div class="bg-noise"></div>
-        <div class="bg-particles">
-            <div class="particle" style="left:5%; width:3px; height:3px; animation-delay:0s;"></div>
-            <div class="particle blue" style="left:15%; width:4px; height:4px; animation-delay:2s;"></div>
-            <div class="particle purple" style="left:25%; width:2px; height:2px; animation-delay:4s;"></div>
-            <div class="particle" style="left:35%; width:3px; height:3px; animation-delay:6s;"></div>
-            < <div class="particle blue" style="left:45%; width:5px; height:5px; animation-delay:8s;"></div>
-            <div class="particle purple" style="left:55%; width:3px; height:3px; animation-delay:10s;"></div>
-            <div class="particle" style="left:65%; width:4px; height:4px; animation-delay:12s;"></div>
-            <div class="particle blue" style="left:75%; width:2px; height:2px; animation-delay:14s;"></div>
-            <div class="particle purple" style="left:85%; width:3px; height:3px; animation-delay:16s;"></div>
-            <div class="particle" style="left:95%; width:4px; height:4px; animation-delay:18s;"></div>
-        </div>
+    <!-- DIGITAL TECH BACKGROUND LAYERS -->
+    <div class="bg-grid"></div>
+    <div class="bg-lines"></div>
+    <div class="bg-particles">
+        <div class="particle" style="left:10%; animation-delay:0s;"></div>
+        <div class="particle" style="left:30%; animation-delay:3s;"></div>
+        <div class="particle" style="left:50%; animation-delay:6s;"></div>
+        <div class="particle" style="left:70%; animation-delay:9s;"></div>
+        <div class="particle" style="left:90%; animation-delay:12s;"></div>
     </div>
-    <div class="tech-corner tl"></div>
-    <div class="tech-corner tr"></div>
-    <div class="tech-corner bl"></div>
-    <div class="tech-corner br"></div>
 
     <nav><h2>JON TECH</h2></nav>
 
-    <!-- HERO - YOUR PIC WITH NEW FRIENDLY TEXT -->
-    <section class="container section">
-        <div class="flex">
-            <div class="fade-left">
-                <h1><span class="gradient">JON TECH</span></h1>
-                <p style="margin-top:25px;">Web Designer & Developer<br>Crafting beautiful websites that help your business grow</p>
-            </div>
-            <img src="https://i.imgur.com/wm3fQT1.jpg" alt="Jon" class="oval fade-right">
+    <!-- WELCOME -->
+    <section class="container section flex">
+        <div class="fade-left">
+            <h1>Welcome to <br><span class="gradient">JON TECH</span></h1>
+            <div class="btn-pill">Web Designer & Developer</div>
+            <p style="margin-top:20px;">I build websites for growing businesses. <br>Fast. Modern. Profitable.</p>
         </div>
+        <img src="https://i.imgur.com/xxMwkNZ.jpeg" alt="Jon" class="oval fade-right">
     </section>
 
-    <!-- PRICING ONLY -->
+    <!-- WHO IS JON -->
+    <section class="container section flex">
+        <div class="fade-left" style="max-width: 500px;">
+            <h2>Who is Jon</h2>
+            <p>I'm a web designer and developer obsessed with results. 
+            I don't just build websites. I build digital machines that get you customers while you sleep.
+            Every pixel has a purpose. Every line of code sells.</p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600" alt="Coding" class="oval oval-small fade-right">
+    </section>
+
+    <!-- BACKGROUND -->
     <section class="container section fade-in">
-        <div class="pricing-wrapper">
-            <h2 class="blur-in">Invest in Your Digital Future</h2>
-            <div class="pricing-grid">
-                <div class="price-card scale-in" style="transition-delay:0.1s;">
-                    <h3>Basic</h3>
-                    <div class="price">$100<span>/one time</span></div>
-                    <ul>
-                        <li>1-3 Page Website</li>
-                        <li>Mobile Responsive</li>
-                        <li>Contact Form</li>
-                        <li>Basic SEO</li>
-                        <li>1 Week Delivery</li>
-                    </ul>
-                </div>
-                <div class="price-card featured scale-in" style="transition-delay:0.2s;">
-                    <div class="badge">MOST POPULAR</div>
-                    <h3>Pro</h3>
-                    <div class="price">$150<span>/one time</span></div>
-                    <ul>
-                        <li>Up to 5 Pages</li>
-                        <li>WhatsApp Chat Button</li>
-                        <li>Advanced SEO</li>
-                        <li>Google Maps</li>
-                        <li>2 Weeks Delivery</li>
-                    </ul>
-                </div>
-                <div class="price-card scale-in" style="transition-delay:0.3s;">
-                    <h3>Full Stack</h3>
-                    <div class="price">$250<span>/one time</span></div>
-                    <ul>
-                        <li>Unlimited Pages</li>
-                        <li>Admin Dashboard</li>
-                        <li>Payment Integration</li>
-                        <li>Database System</li>
-                        <li>3 Weeks + Support</li>
-                    </ul>
-                </div>
+        <h2>My Background</h2>
+        <div style="max-width:600px;">
+            <div style="padding:15px 0; border-left:3px solid #22c55e; padding-left:25px; margin:15px 0;">Self-taught Web Developer with 2+ years experience</div>
+            <div style="padding:15px 0; border-left:3px solid #22c55e; padding-left:25px; margin:15px 0;">Specialized in High-Converting Business Websites</div>
+            <div style="padding:15px 0; border-left:3px solid #22c55e; padding-left:25px; margin:15px 0;">Mission: Help businesses grow through beautiful design</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="container section fade-in">
+        <h2>Some of my projects</h2>
+        <div class="projects">
+            <div class="arch scale-in" style="transition-delay:0.1s;">🏪</div>
+            <div class="arch scale-in" style="transition-delay:0.2s;">📱</div>
+            <div class="arch scale-in" style="transition-delay:0.3s;">💼</div>
+        </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="container section flex fade-in">
+        <h2 style="max-width:450px;">Art speaks where<br>words are unable<br>to explain.</h2>
+        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600" alt="Book" class="oval oval-small">
+    </section>
+
+    <!-- PRICING -->
+    <section class="container section fade-in">
+        <h2>My Pricing</h2>
+        <div class="pricing-grid">
+            <div class="price-card scale-in" style="transition-delay:0.1s;">
+                <h3>Basic</h3>
+                <div class="price">$100<span>/one time</span></div>
+                <ul><li>1-3 Page Website</li><li>Mobile Responsive</li><li>Contact Form</li><li>Basic SEO</li><li>1 Week Delivery</li></ul>
             </div>
-            <div style="text-align:center;">
-                <a href="https://wa.me/256776934860" class="btn-vvip">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                    Let's Talk on WhatsApp
-                </a>
+            <div class="price-card featured scale-in" style="transition-delay:0.2s;">
+                <div class="badge">MOST POPULAR</div>
+                <h3>Pro</h3>
+                <div class="price">$150<span>/one time</span></div>
+                <ul><li>Up to 5 Pages</li><li>WhatsApp Chat Button</li><li>Advanced SEO</li><li>Google Maps</li><li>2 Weeks Delivery</li></ul>
+            </div>
+            <div class="price-card scale-in" style="transition-delay:0.3s;">
+                <h3>Full Stack</h3>
+                <div class="price">$250<span>/one time</span></div>
+                <ul><li>Unlimited Pages</li><li>Admin Dashboard</li><li>Payment Integration</li><li>Database System</li><li>3 Weeks + Support</li></ul>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- MORE WORK -->
+    <section class="container section fade-in">
+        <h2>More of My Work</h2>
+        <div class="projects">
+            <div class="arch">🎨</div>
+            <div class="arch">🚀</div>
+            <div class="arch">📊</div>
+            <div class="arch">✨</div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="container section fade-in">
+        <h2>Reach Out to Me</h2>
+        <div class="contact-grid">
+            <div class="contact-item"><h4>Location</h4><p>Kigumba, Masindi District<br>Uganda 🇺🇬</p></div>
+            <div class="contact-item"><h4>Email</h4><p>jon248257@gmail.com</p></div>
+            <div class="contact-item"><h4>Phone</h4><p>+256 776 934 860</p></div>
+        </div>
+        <div style="text-align:center;">
+            <a href="https://wa.me/256776934860" class="whatsapp-btn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                Message Me on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER WITH UGANDA FLAG EMOJI -->
     <footer>
-        <p>Proudly built in Uganda 🇺🇬 © 2026 Jon Tech. VVIP Digital Experience.</p>
+        <p>Proudly built in Uganda 🇺🇬 © 2026 Jon Tech. All Rights Reserved.</p>
     </footer>
 
     <!-- SCROLL ANIMATION SCRIPT -->
@@ -327,7 +304,7 @@
             });
         }, {threshold: 0.1});
 
-        document.querySelectorAll('.fade-in, .fade-left, .fade-right, .scale-in, .blur-in').forEach(el => {
+        document.querySelectorAll('.fade-in, .fade-left, .fade-right, .scale-in').forEach(el => {
             observer.observe(el);
         });
     </script>
