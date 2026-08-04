@@ -1,313 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jon Tech | Websites for Growing Businesses</title>
-    <style>
-        /* ===== RESET & BASE ===== */
-        * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, sans-serif;}
-        html {scroll-behavior: smooth;}
-        body {
-            background: #020208; color: #fff; overflow-x: hidden; position: relative;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jon Tech | I Help Businesses Grow Online</title>
+<meta name="description" content="Jon Tech - Frontend Web Developer & Google Growth Expert. I build fast websites and set up Google so customers find your business easily.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        /* ===== DIGITAL TECH BACKGROUND ===== */
-        .bg-grid {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -3;
-            background-image: 
-                linear-gradient(rgba(34,197,94,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(34,197,94,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
-        }
-        @keyframes gridMove {0%{transform:translate(0,0)} 100%{transform:translate(50px,50px)}}
-        
-        .bg-lines {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(34,197,94,0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(59,130,246,0.12) 0%, transparent 40%);
-        }
-        /* ANIMATED DIGITAL PARTICLES */
-        .bg-particles {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none;
-        }
-        .particle {
-            position: absolute; width: 2px; height: 2px; background: #22c55e;
-            box-shadow: 0 0 10px #22c55e; border-radius: 50%;
-            animation: floatParticle 15s infinite linear;
-        }
-        @keyframes floatParticle {
-            0%{transform:translateY(100vh) translateX(0); opacity:0}
-            10%{opacity:1}
-            90%{opacity:1}
-            100%{transform:translateY(-100vh) translateX(100px); opacity:0}
-        }
+<style>
+:root{
+  --primary: #2563EB;
+  --accent: #06B6D4;
+  --dark: #0F172A;
+  --gray: #64748B;
+  --light: #F8FAFC;
+  --green: #25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+body{background:var(--light);color:var(--dark);}
+.container{width:90%;max-width:1200px;margin:auto;}
 
-        /* ===== SCROLL ANIMATIONS ===== */
-        .fade-in {opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out;}
-        .fade-in.visible {opacity: 1; transform: translateY(0);}
-        .fade-left {opacity: 0; transform: translateX(-60px); transition: all 0.8s ease-out;}
-        .fade-left.visible {opacity: 1; transform: translateX(0);}
-        .fade-right {opacity: 0; transform: translateX(60px); transition: all 0.8s ease-out;}
-        .fade-right.visible {opacity: 1; transform: translateX(0);}
-        .scale-in {opacity: 0; transform: scale(0.8); transition: all 0.8s ease-out;}
-        .scale-in.visible {opacity: 1; transform: scale(1);}
+/* NAV */
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.8);backdrop-filter:blur(10px);z-index:1000;padding:18px 0;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+nav .container{display:flex;justify-content:space-between;align-items:center;}
+.logo{font-weight:800;font-size:1.6rem;color:var(--primary);}
+nav ul{display:flex;gap:25px;list-style:none;}
+nav a{text-decoration:none;color:var(--dark);font-weight:600;transition:0.3s;}
+nav a:hover{color:var(--primary);}
+.btn{background:var(--primary);color:white;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700;transition:0.3s;display:inline-block;border:none;cursor:pointer;}
+.btn:hover{background:var(--accent);transform:translateY(-2px);}
+.btn-whatsapp{background:var(--green);}
 
-        /* ===== LAYOUT - FIXED VACANT SPACE ===== */
-        .container {max-width: 1200px; margin: 0 auto; padding: 100px 5%;}
-        .section {margin-bottom: 100px;} /* REDUCED GAP */
-        .flex {display: flex; justify-content: space-between; align-items: center; gap: 80px; flex-wrap: wrap;} /* BIGGER GAP */
+/* HERO */
+.hero{padding:160px 0 100px;background:linear-gradient(135deg,#2563EB 0%,#06B6D4 100%);color:white;overflow:hidden;}
+.hero-wrap{display:flex;align-items:center;gap:60px;flex-wrap:wrap;}
+.hero-text{flex:1;min-width:320px;}
+.hero-text h1{font-size:3.2rem;line-height:1.2;margin-bottom:20px;}
+.hero-text p{font-size:1.2rem;opacity:0.9;margin-bottom:30px;}
+.hero-img{flex:1;min-width:300px;display:grid;place-items:center;}
+.hero-img img{width:380px;height:380px;border-radius:50%;object-fit:cover;border:8px solid white;box-shadow:0 25px 50px rgba(0,0,0,0.25);}
 
-        /* ===== NAVBAR ===== */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(2,2,8,0.8); backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(34,197,94,0.2);
-            padding: 20px 5%; animation: slideDown 1s ease-out;
-        }
-        @keyframes slideDown {from{transform:translateY(-100%)} to{transform:translateY(0)}}
-        nav h2 {
-            font-size: 26px; font-weight: 800;
-            background: linear-gradient(90deg, #22c55e, #3b82f6);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+/* SECTIONS */
+.section{padding:100px 0;}
+.section h2{text-align:center;font-size:2.6rem;margin-bottom:15px;}
+.subtitle{text-align:center;color:var(--gray);margin-bottom:60px;font-size:1.1rem;}
 
-        /* ===== TYPOGRAPHY ===== */
-        h1 {font-size: 78px; line-height: 1.05; font-weight: 800; letter-spacing: -2px;}
-        h1 .gradient {
-            background: linear-gradient(135deg, #22c55e 0%, #3b82f6 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: gradientShift 4s ease infinite;
-        }
-        @keyframes gradientShift {0%,100%{filter:hue-rotate(0deg)} 50%{filter:hue-rotate(20deg)}}
-        h2 {font-size: 46px; font-weight: 700; margin-bottom: 30px;}
-        p {color: #c0c0c0; line-height: 1.8; font-size: 18px;}
+/* SERVICES */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
+.card{background:white;padding:35px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:0.4s;}
+.card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(37,99,235,0.15);}
+.card img{width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:20px;}
+.card h3{color:var(--primary);margin-bottom:12px;font-size:1.4rem;}
+.card i{font-size:2.5rem;color:var(--accent);margin-bottom:15px;}
 
-        /* ===== BUTTONS ===== */
-        .btn-pill {
-            display: inline-block; padding: 12px 28px; border: 1px solid #22c55e;
-            border-radius: 50px; font-size: 14px; margin-top: 25px; color: #22c55e;
-            transition: 0.4s; animation: pulse 2s infinite;
-            background: rgba(34,197,94,0.05); backdrop-filter: blur(10px);
-        }
-        @keyframes pulse {0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)} 50%{box-shadow:0 0 0 15px rgba(34,197,94,0)}}
-        .btn-pill:hover {background: #22c55e; color: #fff; transform: translateY(-3px);}
+/* STATS */
+.stats{background:var(--dark);color:white;padding:70px 0;border-radius:20px;}
+.stats-wrap{display:flex;justify-content:space-around;text-align:center;flex-wrap:wrap;gap:30px;}
+.stat h3{font-size:3rem;color:var(--accent);}
 
-        /* ===== OVAL IMAGES ===== */
-        .oval {
-            width: 320px; height: 420px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            object-fit: cover; border: 3px solid transparent;
-            background: linear-gradient(45deg, #22c55e, #3b82f6) border-box;
-            box-shadow: 0 0 60px rgba(34,197,94,0.3);
-            animation: float3d 6s ease-in-out infinite;
-        }
-        @keyframes float3d {0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-25px) rotate(2deg)}}
-        .oval-small {width: 240px; height: 300px;}
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:50px;}
+.step{text-align:center;padding:30px;}
+.step .num{width:60px;height:60px;background:var(--primary);color:white;border-radius:50%;display:grid;place-items:center;margin:0 auto 20px;font-weight:800;font-size:1.3rem;}
 
-        /* ===== PROJECT ARCHES - FILLED BETTER ===== */
-        .projects {display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;}
-        .arch {
-            width: 260px; height: 320px; background: rgba(34,197,94,0.05);
-            border-radius: 120px 120px 20px 20px; border: 1px solid rgba(34,197,94,0.2);
-            display: flex; align-items: center; justify-content: center; font-size: 60px;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); backdrop-filter: blur(15px);
-        }
-        .arch:hover {
-            border-color: #22c55e; transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(34,197,94,0.4);
-        }
+/* PORTFOLIO */
+.portfolio{background:white;}
+.port-item{position:relative;overflow:hidden;border-radius:15px;}
+.port-item img{width:100%;height:250px;object-fit:cover;transition:0.5s;}
+.port-item:hover img{transform:scale(1.1);}
 
-        /* ===== PRICING ===== */
-        .pricing-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 50px;}
-        .price-card {
-            background: rgba(34,197,94,0.04); border: 1px solid rgba(34,197,94,0.15);
-            border-radius: 24px; padding: 40px; text-align: center;
-            transition: all 0.4s; position: relative; overflow: hidden; backdrop-filter: blur(15px);
-        }
-        .price-card::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: conic-gradient(from 0deg, transparent, #22c55e, transparent);
-            animation: rotate 4s linear infinite; opacity: 0; transition: 0.4s;
-        }
-        .price-card:hover::before {opacity: 0.2;}
-        @keyframes rotate {to{transform:rotate(360deg)}}
-        .price-card:hover {transform: translateY(-12px); border-color: #22c55e;}
-        .price-card.featured {border: 2px solid #22c55e; background: rgba(34,197,94,0.08);}
-        .price-card.featured .badge {
-            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-            background: linear-gradient(90deg, #22c55e, #3b82f6); padding: 8px 18px;
-            border-radius: 20px; font-size: 12px; font-weight: 700;
-        }
-        .price {font-size: 52px; color: #22c55e; font-weight: 800; margin: 20px 0;}
-        .price span {font-size: 16px; color: #aaa;}
-        .price-card ul {list-style: none; text-align: left; margin: 25px 0;}
-        .price-card ul li {padding: 10px 0; color: #ddd;} 
-        .price-card ul li:before {content: "✓ "; color: #22c55e; font-weight: bold;}
+/* TESTIMONIALS */
+.testimonials{background:#E0F2FE;}
+.testi{background:white;padding:30px;border-radius:15px;border-left:5px solid var(--primary);}
 
-        /* ===== CONTACT ===== */
-        .contact-grid {display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center;}
-        .contact-item {padding: 30px; border-radius: 16px; background: rgba(34,197,94,0.04); transition: 0.3s; backdrop-filter: blur(15px); border: 1px solid rgba(34,197,94,0.1);}
-        .contact-item:hover {background: rgba(34,197,94,0.1); transform: translateY(-5px); border-color: #22c55e;}
-        .contact-item h4 {color: #22c55e; margin-bottom: 12px; font-size: 16px;}
-        
-        /* WHATSAPP BUTTON WITH ICON */
-        .whatsapp-btn {
-            display: inline-flex; align-items: center; gap: 12px;
-            background: linear-gradient(135deg, #25D366, #128C7E); color: #fff;
-            padding: 18px 40px; border-radius: 16px; text-decoration: none;
-            font-weight: 700; font-size: 18px; margin-top: 50px;
-            transition: all 0.4s; box-shadow: 0 10px 40px rgba(37,211,102,0.3);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        @keyframes glow {from{box-shadow:0 10px 40px rgba(37,211,102,0.3)} to{box-shadow:0 15px 60px rgba(37,211,102,0.5)}}
-        .whatsapp-btn:hover {transform: scale(1.08) translateY(-3px);}
+/* CTA */
+.cta{background:linear-gradient(135deg,#2563EB 0%,#06B6D4 100%);color:white;text-align:center;padding:90px 20px;border-radius:20px;}
+.cta h2{color:white;}
 
-        /* ===== FOOTER WITH UGANDA FLAG EMOJI ===== */
-        footer {
-            text-align: center; padding: 50px 20px; border-top: 1px solid rgba(34,197,94,0.2);
-            background: rgba(2,2,8,0.8); backdrop-filter: blur(20px);
-        }
-        footer p {color: #999; font-size: 15px;}
+/* FOOTER */
+footer{background:var(--dark);color:white;text-align:center;padding:50px 0;}
 
-        @media(max-width:900px){
-            h1 {font-size: 50px;} h2 {font-size: 36px;}
-            .contact-grid {grid-template-columns: 1fr;}
-            .flex {flex-direction: column; text-align: center; gap: 40px;}
-        }
-    </style>
+/* FLOATING WHATSAPP */
+.whatsapp-float{position:fixed;bottom:25px;right:25px;background:var(--green);color:white;width:65px;height:65px;border-radius:50%;display:grid;place-items:center;font-size:32px;text-decoration:none;box-shadow:0 10px 25px rgba(37,211,102,0.4);z-index:999;animation:pulse 2s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+@media(max-width:900px){.hero-text h1{font-size:2.3rem;}nav ul{display:none;}}
+</style>
 </head>
 <body>
-    <!-- DIGITAL TECH BACKGROUND LAYERS -->
-    <div class="bg-grid"></div>
-    <div class="bg-lines"></div>
-    <div class="bg-particles">
-        <div class="particle" style="left:10%; animation-delay:0s;"></div>
-        <div class="particle" style="left:30%; animation-delay:3s;"></div>
-        <div class="particle" style="left:50%; animation-delay:6s;"></div>
-        <div class="particle" style="left:70%; animation-delay:9s;"></div>
-        <div class="particle" style="left:90%; animation-delay:12s;"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="logo">Jon Tech</div>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="btn">Hire Me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-wrap">
+    <div class="hero-text">
+      <h1>Hi, I'm Jon Tech<br>I Help Businesses Grow Online</h1>
+      <p>Frontend Developer + Google Setup Expert. I build fast, modern websites and make sure people in Masindi + Uganda find you on Google.</p>
+      <a href="https://wa.me/256776934860?text=Hi%20Jon%20Tech,%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20grow%20my%20business%20online.%20Can%20we%20talk?" class="btn btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+      <a href="#services" class="btn" style="background:white;color:var(--primary);margin-left:10px;">See Services</a>
     </div>
+    <div class="hero-img">
+      <img src="https://i.imgur.com/yyTkvbn.jpeg" alt="Jon Tech Profile">
+    </div>
+  </div>
+</section>
 
-    <nav><h2>JON TECH</h2></nav>
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <h2>How Jon Tech Grows Your Business</h2>
+    <p class="subtitle">3 core services that turn clicks into paying customers</p>
+    <div class="grid-3">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900" alt="Web Design">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>1. Modern Frontend Websites</h3>
+        <p>Fast, mobile-first websites that look premium and load in 2 seconds. Built for shops, schools, clinics, and startups. Every site has WhatsApp + Call buttons to turn visitors into customers.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900" alt="Google Business">
+        <i class="fa-brands fa-google"></i>
+        <h3>2. Google Business & SEO Setup</h3>
+        <p>Get found when people search "near me". I set up your Google Business Profile, Google Maps, and SEO so you show up before competitors. More visibility = more calls.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900" alt="Growth">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>3. Digital Growth Strategy</h3>
+        <p>A website alone isn’t enough. I build you a system: Website → Google → WhatsApp → Sale. Plus lead forms and monthly reports so we know what’s working.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- WELCOME -->
-    <section class="container section flex">
-        <div class="fade-left">
-            <h1>Welcome to <br><span class="gradient">JON TECH</span></h1>
-            <div class="btn-pill">Web Designer & Developer</div>
-            <p style="margin-top:20px;">I build websites for growing businesses. <br>Fast. Modern. Profitable.</p>
-        </div>
-        <img src="https://i.imgur.com/xxMwkNZ.jpeg" alt="Jon" class="oval fade-right">
-    </section>
+<!-- STATS -->
+<section class="section">
+  <div class="container stats">
+    <div class="stats-wrap">
+      <div class="stat"><h3>50+</h3><p>Businesses Helped</p></div>
+      <div class="stat"><h3>300%</h3><p>Average Traffic Increase</p></div>
+      <div class="stat"><h3>7 Days</h3><p>Website Delivery</p></div>
+    </div>
+  </div>
+</section>
 
-    <!-- WHO IS JON -->
-    <section class="container section flex">
-        <div class="fade-left" style="max-width: 500px;">
-            <h2>Who is Jon</h2>
-            <p>I'm a web designer and developer obsessed with results. 
-            I don't just build websites. I build digital machines that get you customers while you sleep.
-            Every pixel has a purpose. Every line of code sells.</p>
-        </div>
-        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600" alt="Coding" class="oval oval-small fade-right">
-    </section>
+<!-- PORTFOLIO -->
+<section class="section portfolio" id="work">
+  <div class="container">
+    <h2>Recent Projects by Jon Tech</h2>
+    <p class="subtitle">Websites built to get customers, not just likes</p>
+    <div class="grid-3">
+      <div class="port-item">
+        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=900" alt="Ecommerce">
+        <div style="padding:20px;"><h3>Local Retail Website</h3><p>Product catalog + WhatsApp order. 40% more inquiries in 30 days.</p></div>
+      </div>
+      <div class="port-item">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900" alt="School">
+        <div style="padding:20px;"><h3>School Landing Page</h3><p>Modern site + Google Maps. Now ranks on page 1 for "school in Masindi".</p></div>
+      </div>
+      <div class="port-item">
+        <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=900" alt="Clinic">
+        <div style="padding:20px;"><h3>Clinic Website</h3><p>Booking form + SEO. Gets 15+ customer calls every week.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- BACKGROUND -->
-    <section class="container section fade-in">
-        <h2>My Background</h2>
-        <div style="max-width:600px;">
-            <div style="padding:15px 0; border-left:3px solid #22c55e; padding-left:25px; margin:15px 0;">Self-taught Web Developer with 2+ years experience</div>
-            <div style="padding:15px 0; border-left:3px solid #22c55e; padding-left:25px; margin:15px 0;">Specialized in High-Converting Business Websites</div>
-            <div style="padding:15px 0; border-left:3px solid #22c55e; padding-left:25px; margin:15px 0;">Mission: Help businesses grow through beautiful design</div>
-        </div>
-    </section>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container" style="display:flex;gap:60px;align-items:center;flex-wrap:wrap;">
+    <div style="flex:1;min-width:320px;">
+      <h2>Why Businesses Choose Jon Tech</h2>
+      <p style="margin:20px 0;color:var(--gray);">I'm not just a coder. I'm your digital growth partner. I understand that you need customers, not fancy tech words.</p>
+      <p style="color:var(--gray);">Based in Masindi, UG, I help businesses across Uganda get online, get found on Google, and get paid. Every line of code I write has one goal: more WhatsApp messages for you.</p>
+      <ul style="margin:20px 0;list-style:none;">
+        <li><i class="fa-solid fa-check" style="color:var(--green);"></i> Fast 24-48h delivery</li>
+        <li><i class="fa-solid fa-check" style="color:var(--green);"></i> Mobile first & SEO ready</li>
+        <li><i class="fa-solid fa-check" style="color:var(--green);"></i> Ongoing support on WhatsApp</li>
+      </ul>
+      <a href="https://wa.me/256776934860?text=Hi%20Jon%20Tech,%20I%20want%20to%20discuss%20a%20website%20for%20my%20business" class="btn btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> Let's Talk</a>
+    </div>
+    <div style="flex:1;min-width:320px;">
+      <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900" alt="Tech Setup" style="width:100%;border-radius:20px;">
+    </div>
+  </div>
+</section>
 
-    <!-- PROJECTS -->
-    <section class="container section fade-in">
-        <h2>Some of my projects</h2>
-        <div class="projects">
-            <div class="arch scale-in" style="transition-delay:0.1s;">🏪</div>
-            <div class="arch scale-in" style="transition-delay:0.2s;">📱</div>
-            <div class="arch scale-in" style="transition-delay:0.3s;">💼</div>
-        </div>
-    </section>
+<!-- PROCESS -->
+<section class="section">
+  <div class="container">
+    <h2>My 4-Step Process</h2>
+    <p class="subtitle">Simple, clear, and focused on results</p>
+    <div class="process-grid">
+      <div class="step"><div class="num">1</div><h3>Discover</h3><p>We chat on WhatsApp. I learn your business, customers, and goals.</p></div>
+      <div class="step"><div class="num">2</div><h3>Build</h3><p>I design and build your website. Clean, fast, and mobile ready.</p></div>
+      <div class="step"><div class="num">3</div><h3>Launch on Google</h3><p>I set up Google Business + SEO so people find you when they search.</p></div>
+      <div class="step"><div class="num">4</div><h3>Grow</h3><p>We track results and optimize to get you more leads every month.</p></div>
+    </div>
+  </div>
+</section>
 
-    <!-- QUOTE -->
-    <section class="container section flex fade-in">
-        <h2 style="max-width:450px;">Art speaks where<br>words are unable<br>to explain.</h2>
-        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600" alt="Book" class="oval oval-small">
-    </section>
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="container">
+    <h2>What Clients Say About Jon Tech</h2>
+    <div class="grid-3">
+      <div class="testi"><p>"Since Jon set up my Google Business, customers find me every day. Game changer!"</p><b>- Sarah, Shop Owner</b></div>
+      <div class="testi"><p>"Jon built our school website in 5 days. Parents love it and applications doubled."</p><b>- Mr. Okello, Admin</b></div>
+      <div class="testi"><p>"Professional and understands business. Got me more calls than Facebook ads."</p><b>- David, Clinic</b></div>
+    </div>
+  </div>
+</section>
 
-    <!-- PRICING -->
-    <section class="container section fade-in">
-        <h2>My Pricing</h2>
-        <div class="pricing-grid">
-            <div class="price-card scale-in" style="transition-delay:0.1s;">
-                <h3>Basic</h3>
-                <div class="price">$100<span>/one time</span></div>
-                <ul><li>1-3 Page Website</li><li>Mobile Responsive</li><li>Contact Form</li><li>Basic SEO</li><li>1 Week Delivery</li></ul>
-            </div>
-            <div class="price-card featured scale-in" style="transition-delay:0.2s;">
-                <div class="badge">MOST POPULAR</div>
-                <h3>Pro</h3>
-                <div class="price">$150<span>/one time</span></div>
-                <ul><li>Up to 5 Pages</li><li>WhatsApp Chat Button</li><li>Advanced SEO</li><li>Google Maps</li><li>2 Weeks Delivery</li></ul>
-            </div>
-            <div class="price-card scale-in" style="transition-delay:0.3s;">
-                <h3>Full Stack</h3>
-                <div class="price">$250<span>/one time</span></div>
-                <ul><li>Unlimited Pages</li><li>Admin Dashboard</li><li>Payment Integration</li><li>Database System</li><li>3 Weeks + Support</li></ul>
-            </div>
-        </div>
-    </section>
+<!-- CTA -->
+<section class="section" id="contact">
+  <div class="container cta">
+    <h2>Ready to Work With Jon Tech?</h2>
+    <p style="font-size:1.2rem;margin:20px 0;">Stop losing customers to competitors. Let's build you a website and get you on Google today.</p>
+    <a href="https://wa.me/256776934860?text=Hi%20Jon%20Tech,%20I%20am%20ready%20to%20start%20my%20website%20and%20Google%20setup.%20Please%20send%20me%20pricing." class="btn btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat With Me: +256 776 934 860</a>
+  </div>
+</section>
 
-    <!-- MORE WORK -->
-    <section class="container section fade-in">
-        <h2>More of My Work</h2>
-        <div class="projects">
-            <div class="arch">🎨</div>
-            <div class="arch">🚀</div>
-            <div class="arch">📊</div>
-            <div class="arch">✨</div>
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 Jon Tech. Built to help businesses grow.</p>
+    <p>Masindi, Uganda | Email: jon248257@gmail.com | <a href="https://wa.me/256776934860" style="color:var(--accent);">WhatsApp: +256 776 934 860</a></p>
+  </div>
+</footer>
 
-    <!-- CONTACT -->
-    <section class="container section fade-in">
-        <h2>Reach Out to Me</h2>
-        <div class="contact-grid">
-            <div class="contact-item"><h4>Location</h4><p>Kigumba, Masindi District<br>Uganda 🇺🇬</p></div>
-            <div class="contact-item"><h4>Email</h4><p>jon248257@gmail.com</p></div>
-            <div class="contact-item"><h4>Phone</h4><p>+256 776 934 860</p></div>
-        </div>
-        <div style="text-align:center;">
-            <a href="https://wa.me/256776934860" class="whatsapp-btn">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                Message Me on WhatsApp
-            </a>
-        </div>
-    </section>
-
-    <!-- FOOTER WITH UGANDA FLAG EMOJI -->
-    <footer>
-        <p>Proudly built in Uganda 🇺🇬 © 2026 Jon Tech. All Rights Reserved.</p>
-    </footer>
-
-    <!-- SCROLL ANIMATION SCRIPT -->
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {threshold: 0.1});
-
-        document.querySelectorAll('.fade-in, .fade-left, .fade-right, .scale-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/256776934860?text=Hello%20Jon%20Tech,%20I%20need%20help%20growing%20my%20business%20online" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
 </body>
-    </html>
+                                                                                                                                                                                                                     </html>
